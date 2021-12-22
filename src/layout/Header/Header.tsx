@@ -28,11 +28,18 @@ export default function Header() {
         <Input placeholder="search images" variant="outline" />
       </InputGroup>
 
-      <Button ml="auto" bgColor={'#3DB46D'} color="white">
+      <Button
+        ml="auto"
+        bgColor={'#3DB46D'}
+        color="white"
+        onClick={() => onOpen()}
+      >
         Add Photos
       </Button>
 
-      <NewPhotoModal isOpen={isOpen} onClose={onClose} />
+      <React.Suspense fallback={'loading....'}>
+        <NewPhotoModal isOpen={isOpen} onClose={onClose} />
+      </React.Suspense>
     </Flex>
   )
 }
