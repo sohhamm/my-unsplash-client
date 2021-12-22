@@ -1,10 +1,14 @@
-import {Image} from '@chakra-ui/react'
-import React from 'react'
+import {Box, Flex, Icon, Text} from '@chakra-ui/react'
+import {MdCollections} from 'react-icons/md'
 
 export default function BrandLogo() {
   return (
-    <div>
-      <Image />
-    </div>
+    <Flex alignItems="center">
+      <Icon as={MdCollections} boxSize={'50px'} mr={4} />
+      <Box>
+        <Text fontWeight={'bold'}>My Unsplash</Text>
+        <Text>devChallenges.io</Text>
+      </Box>
+    </Flex>
   )
 }
