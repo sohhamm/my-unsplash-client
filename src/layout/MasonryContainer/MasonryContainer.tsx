@@ -1,12 +1,12 @@
 import Masonry from 'react-masonry-css'
 import classes from './MasonryContainer.module.css'
-import {Box, Image} from '@chakra-ui/react'
+import {Box, Button, Text, Image} from '@chakra-ui/react'
 
 const items = [
-  {url: 'https://picsum.photos/400/200', name: 'My First Item'},
+  {url: 'https://picsum.photos/400/200', name: 'My Item'},
   {url: 'https://picsum.photos/400/400', name: 'Another item'},
-  {url: 'https://picsum.photos/400/200', name: 'Third Item'},
-  {url: 'https://picsum.photos/400/600', name: 'Here is the Fourth'},
+  {url: 'https://picsum.photos/400/200', name: 'Pic'},
+  {url: 'https://picsum.photos/400/600', name: 'Here is a random one'},
   {url: 'https://picsum.photos/400/500', name: 'High Five'},
   {url: 'https://picsum.photos/400/200', name: 'Magic Five'},
   {url: 'https://picsum.photos/400/300', name: 'Fire Five'},
@@ -29,13 +29,31 @@ export default function MasonryContainer() {
       className={classes.grid}
       columnClassName={classes.columnGrid}
     >
-      {items.map(item => {
+      {items.map((item, idx) => {
         return (
-          <Box height="auto" key={item.name} className={classes.box}>
-            <Image src={item.url} objectFit="fill" />
+          <Box height="auto" key={item.name + idx} className={classes.box}>
+            <Image
+              src={item.url}
+              objectFit="fill"
+              className={classes.image}
+              bg="red"
+            />
+            <Overlay label={item.name} />
           </Box>
         )
       })}
     </Masonry>
+  )
+}
+
+function Overlay({label}: {label: string}) {
+  return (
+    <Box w="100%" h="100%" className={classes.overlay}>
+      <Button colorScheme="red" ml="auto">
+        Delete
+      </Button>
+
+      <Text textAlign="center">{label}</Text>
+    </Box>
   )
 }

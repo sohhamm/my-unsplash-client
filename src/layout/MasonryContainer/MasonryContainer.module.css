@@ -15,6 +15,27 @@
   margin-bottom: 30px;
 }
 
-img {
+/* .box:hover {
+  background: rgba(0, 0, 0, 0.38);
+  z-index: 2;
+  opacity: 0.7;
+} */
+
+.image {
   border-radius: 16px;
+}
+
+.image:hover {
+  border-radius: 32px;
+  z-index: 0;
+}
+
+.overlay {
+  opacity: 0;
+  z-index: 1;
+}
+
+.opacity:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.38);
 }
