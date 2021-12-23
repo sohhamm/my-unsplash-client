@@ -38,10 +38,7 @@
   opacity: 0;
 }
 
-.overlay:hover {
-  /* position: relative;
-  left: 180px;
-  top: 75px;
-  z-index: 1; */
-  opacity: 1;
+.overlay > p {
+  position: relative;
+  right: 100px;
 }

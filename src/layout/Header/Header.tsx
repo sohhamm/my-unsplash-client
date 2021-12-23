@@ -4,18 +4,25 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   Button,
   useDisclosure,
 } from '@chakra-ui/react'
 import BrandLogo from '../../components/BrandLogo/BrandLogo'
-import {MdSearch} from 'react-icons/md'
+import {MdSearch, MdClose} from 'react-icons/md'
 
 const NewPhotoModal = React.lazy(
   () => import('../../components/NewPhotoModal/NewPhotoModal'),
 )
 
-export default function Header() {
+declare interface HeaderProps {
+  searchTxt: string
+  setSearchTxt: React.Dispatch<React.SetStateAction<string>>
+}
+
+export default function Header({searchTxt, setSearchTxt}: HeaderProps) {
   const {isOpen, onOpen, onClose} = useDisclosure()
+
   return (
     <Flex p={'32px'}>
       <BrandLogo />
@@ -25,7 +32,18 @@ export default function Header() {
           <MdSearch />
         </InputLeftElement>
 
-        <Input placeholder="search images" variant="outline" />
+        <Input
+          placeholder="search images"
+          variant="outline"
+          value={searchTxt}
+          onChange={e => setSearchTxt(e.target.value)}
+        />
+
+        {searchTxt.length && (
+          <InputRightElement>
+            <MdClose onClick={() => setSearchTxt('')} />
+          </InputRightElement>
+        )}
       </InputGroup>
 
       <Button
