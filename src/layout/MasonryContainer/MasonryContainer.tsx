@@ -3,6 +3,7 @@ import Masonry from 'react-masonry-css'
 import classes from './MasonryContainer.module.css'
 import {Box, Button, Text, Image} from '@chakra-ui/react'
 import {breakPointColsObj, items} from '../../constants/index.const'
+import Overlay from '../../components/Overlay/Overlay'
 
 declare interface MasonryContainerProps {
   searchTxt: string
@@ -22,9 +23,10 @@ export default function MasonryContainer({searchTxt}: MasonryContainerProps) {
             ? item.name.toLowerCase().includes(searchTxt.toLowerCase())
             : true,
         )
-        .map((item, idx) => {
+        .map((item, _idx) => {
           // item.name + key would be unique but test this out
-          const uniqueKey = item.name + idx
+          // const uniqueKey = item.name + idx
+          const uniqueKey = item.name
           console.log({uniqueKey})
           return (
             <Box
@@ -43,33 +45,10 @@ export default function MasonryContainer({searchTxt}: MasonryContainerProps) {
                 alt={item.name}
                 bg="red"
               />
+              <Overlay currentActive={currentActive} label={uniqueKey} txt />
             </Box>
           )
         })}
     </Masonry>
-  )
-}
-
-function Overlay({
-  currentActive,
-  label,
-}: {
-  currentActive: string | null
-  label: string
-}) {
-  return (
-    <Box
-      as="figcaption"
-      w="100%"
-      h="100%"
-      className={classes.overlay}
-      opacity={currentActive === label ? '1' : '0'}
-    >
-      <Button colorScheme="red" ml="auto">
-        Delete
-      </Button>
-
-      <Text textAlign="center">{label}</Text>
-    </Box>
   )
 }
