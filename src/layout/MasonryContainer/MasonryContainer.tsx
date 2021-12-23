@@ -1,28 +1,11 @@
+import * as React from 'react'
 import Masonry from 'react-masonry-css'
 import classes from './MasonryContainer.module.css'
 import {Box, Button, Text, Image} from '@chakra-ui/react'
-
-const items = [
-  {url: 'https://picsum.photos/400/200', name: 'My Item'},
-  {url: 'https://picsum.photos/400/400', name: 'Another item'},
-  {url: 'https://picsum.photos/400/200', name: 'Pic'},
-  {url: 'https://picsum.photos/400/600', name: 'Here is a random one'},
-  {url: 'https://picsum.photos/400/500', name: 'High Five'},
-  {url: 'https://picsum.photos/400/200', name: 'Magic Five'},
-  {url: 'https://picsum.photos/400/300', name: 'Fire Five'},
-  {url: 'https://picsum.photos/400/500', name: 'Famous Five'},
-  {url: 'https://picsum.photos/400/300', name: 'Wave Five'},
-  {url: 'https://picsum.photos/400/600', name: 'Fam Five'},
-]
-
-const breakPointColsObj = {
-  default: 4,
-  1100: 3,
-  700: 2,
-  500: 1,
-}
+import {breakPointColsObj, items} from '../../constants/index.const'
 
 export default function MasonryContainer() {
+  const [currentActive, setCurrentActive] = React.useState<string | null>(null)
   return (
     <Masonry
       breakpointCols={breakPointColsObj}
@@ -30,15 +13,24 @@ export default function MasonryContainer() {
       columnClassName={classes.columnGrid}
     >
       {items.map((item, idx) => {
+        const uniqueKey = item.name + idx
         return (
-          <Box height="auto" key={item.name + idx} className={classes.box}>
+          <Box
+            height="auto"
+            key={uniqueKey}
+            className={classes.box}
+            as="figure"
+            onMouseEnter={() => setCurrentActive(uniqueKey)}
+            onMouseLeave={() => setCurrentActive(null)}
+          >
+            <Overlay currentActive={currentActive} label={uniqueKey} />
             <Image
               src={item.url}
               objectFit="fill"
               className={classes.image}
+              alt={item.name}
               bg="red"
             />
-            <Overlay label={item.name} />
           </Box>
         )
       })}
@@ -46,9 +38,21 @@ export default function MasonryContainer() {
   )
 }
 
-function Overlay({label}: {label: string}) {
+function Overlay({
+  currentActive,
+  label,
+}: {
+  currentActive: string | null
+  label: string
+}) {
   return (
-    <Box w="100%" h="100%" className={classes.overlay}>
+    <Box
+      as="figcaption"
+      w="100%"
+      h="100%"
+      className={classes.overlay}
+      opacity={currentActive === label ? '1' : '0'}
+    >
       <Button colorScheme="red" ml="auto">
         Delete
       </Button>
