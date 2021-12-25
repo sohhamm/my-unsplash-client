@@ -18,3 +18,5 @@ export const breakPointColsObj = {
   700: 2,
   500: 1,
 }
+
+export const URL = `http://localhost:9000/api/photos`
