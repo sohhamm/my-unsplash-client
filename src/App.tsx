@@ -6,11 +6,20 @@ import MasonryContainer from './layout/MasonryContainer/MasonryContainer'
 
 function App() {
   const [searchTxt, setSearchTxt] = React.useState('')
+  const [shouldRefresh, setShouldRefresh] = React.useState(false)
 
   return (
     <Box w="100%">
-      <Header searchTxt={searchTxt} setSearchTxt={setSearchTxt} />
-      <MasonryContainer searchTxt={searchTxt} />
+      <Header
+        searchTxt={searchTxt}
+        setSearchTxt={setSearchTxt}
+        setShouldRefresh={setShouldRefresh}
+      />
+      <MasonryContainer
+        searchTxt={searchTxt}
+        shouldRefresh={shouldRefresh}
+        setShouldRefresh={setShouldRefresh}
+      />
     </Box>
   )
 }
