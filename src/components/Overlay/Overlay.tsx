@@ -16,7 +16,7 @@ export default function Overlay({
     }
   }
   return (
-    <Box as="figcaption" w="100%" h="100%">
+    <Box as="figcaption" w="100%" h="100%" position={'relative'}>
       {txt ? (
         <Text
           textAlign="center"
@@ -29,6 +29,7 @@ export default function Overlay({
           fontFamily={'Montserrat'}
           fontWeight={'bold'}
           fontSize={24}
+          transform={'translate(-12%,10%)'}
         >
           {label}
         </Text>
@@ -36,10 +37,10 @@ export default function Overlay({
         <Button
           colorScheme="red"
           ml="auto"
-          position="relative"
-          transform={'translate(50%,120%)'}
+          position="absolute"
           zIndex={1}
-          left={'50%'}
+          right={5}
+          top={3}
           opacity={shouldShow}
           onClick={handleClick}
           borderRadius={18}
