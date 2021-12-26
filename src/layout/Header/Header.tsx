@@ -8,6 +8,7 @@ import {
   Button,
   useDisclosure,
   Icon,
+  useMediaQuery,
 } from '@chakra-ui/react'
 import BrandLogo from '../../components/BrandLogo/BrandLogo'
 import {MdSearch, MdClose} from 'react-icons/md'
@@ -28,12 +29,39 @@ export default function Header({
   setShouldRefresh,
 }: HeaderProps) {
   const {isOpen, onOpen, onClose} = useDisclosure()
+  const [isSmallWidth] = useMediaQuery('(max-width: 775px)')
+  const [isMobile] = useMediaQuery('(max-width: 500px)')
+
+  console.log(isSmallWidth)
 
   return (
-    <Flex p={'32px'}>
-      <BrandLogo />
+    <Flex
+      p={['10px', '30px', '32px']}
+      flexDirection={isSmallWidth ? 'column' : 'row'}
+    >
+      {isMobile ? (
+        <Flex alignContent={'center'}>
+          <BrandLogo />
+          <Button
+            ml="auto"
+            bgColor={'#3DB46D'}
+            color="white"
+            onClick={() => onOpen()}
+            size="md"
+          >
+            Add a photo
+          </Button>
+        </Flex>
+      ) : (
+        <BrandLogo />
+      )}
 
-      <InputGroup w={'300px'} ml={14}>
+      <InputGroup
+        w={isSmallWidth ? '100%' : '300px'}
+        ml={isSmallWidth ? 0 : 14}
+        mb={isSmallWidth ? 4 : 0}
+        mt={isSmallWidth ? 4 : 0}
+      >
         <InputLeftElement>
           <Icon as={MdSearch} w={8} h={8} mt={2} color="#BDBDBD" />
         </InputLeftElement>
@@ -53,16 +81,17 @@ export default function Header({
           </InputRightElement>
         )}
       </InputGroup>
-
-      <Button
-        ml="auto"
-        bgColor={'#3DB46D'}
-        color="white"
-        onClick={() => onOpen()}
-        size="lg"
-      >
-        Add a photo
-      </Button>
+      {!isMobile && (
+        <Button
+          ml="auto"
+          bgColor={'#3DB46D'}
+          color="white"
+          onClick={() => onOpen()}
+          size="lg"
+        >
+          Add a photo
+        </Button>
+      )}
 
       <React.Suspense fallback={'loading....'}>
         <NewPhotoModal

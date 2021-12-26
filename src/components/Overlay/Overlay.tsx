@@ -25,6 +25,10 @@ export default function Overlay({
           left={10}
           zIndex={1}
           opacity={shouldShow}
+          color={'white'}
+          fontFamily={'Montserrat'}
+          fontWeight={'bold'}
+          fontSize={24}
         >
           {label}
         </Text>
@@ -33,13 +37,15 @@ export default function Overlay({
           colorScheme="red"
           ml="auto"
           position="relative"
-          top={75}
+          transform={'translate(50%,120%)'}
           zIndex={1}
-          left={220}
+          left={'50%'}
           opacity={shouldShow}
           onClick={handleClick}
+          borderRadius={18}
+          variant="outline"
         >
-          Delete
+          delete
         </Button>
       )}
     </Box>

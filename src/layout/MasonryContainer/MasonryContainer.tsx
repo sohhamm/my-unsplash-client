@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Masonry from 'react-masonry-css'
-import classes from './MasonryContainer.module.css'
-import {Box, Image, useToast} from '@chakra-ui/react'
-import {breakPointColsObj} from '../../constants/index.const'
 import Overlay from '../../components/Overlay/Overlay'
+import classes from './MasonryContainer.module.css'
+import {Box, Flex, Image, Spinner, useToast} from '@chakra-ui/react'
+import {breakPointColsObj} from '../../constants/index.const'
 import {getAllPhotos} from '../../data/get-all-photos'
 import {ClientType, PhotoType} from '../../types'
 import {deletePhoto} from '../../data/delete-photo'
@@ -58,7 +58,12 @@ export default function MasonryContainer({
     })
   }
 
-  if (!items) return <p>loading...</p>
+  if (!items)
+    return (
+      <Flex justifyContent="center" alignItems="center" h="80vh">
+        <Spinner size="xl" color="brand.500" thickness="5px" />
+      </Flex>
+    )
 
   return (
     <Masonry
@@ -89,13 +94,15 @@ export default function MasonryContainer({
                 handleDeletePhoto={handleDeletePhoto}
                 id={item.id}
               />
-              <Image
-                src={item.url}
-                objectFit="fill"
-                className={classes.image}
-                alt={item.label}
-                bg="red"
-              />
+              <span className={classes.imageOverlay}>
+                <Image
+                  src={item.url}
+                  objectFit="fill"
+                  className={classes.image}
+                  alt={item.label}
+                  bg="red"
+                />
+              </span>
               <Overlay currentActive={currentActive} label={uniqueKey} txt />
             </Box>
           )

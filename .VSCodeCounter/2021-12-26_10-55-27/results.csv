@@ -1,0 +1,27 @@
+"filename", "language", "XML", "TypeScript", "TypeScript React", "CSS", "JSON", "HTML", "Markdown", "JavaScript", "comment", "blank", "total"
+"/Users/spurge/Desktop/code/my-unsplash-client/.yarn/releases/yarn-1.22.17.cjs", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 101209, 24114, 22197, 147520
+"/Users/spurge/Desktop/code/my-unsplash-client/README.md", "Markdown", 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 2
+"/Users/spurge/Desktop/code/my-unsplash-client/index.html", "HTML", 0, 0, 0, 0, 0, 13, 0, 0, 0, 1, 14
+"/Users/spurge/Desktop/code/my-unsplash-client/package.json", "JSON", 0, 0, 0, 0, 27, 0, 0, 0, 0, 1, 28
+"/Users/spurge/Desktop/code/my-unsplash-client/src/App.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2
+"/Users/spurge/Desktop/code/my-unsplash-client/src/App.tsx", "TypeScript React", 0, 0, 24, 0, 0, 0, 0, 0, 0, 4, 28
+"/Users/spurge/Desktop/code/my-unsplash-client/src/components/BrandLogo/BrandLogo.tsx", "TypeScript React", 0, 0, 13, 0, 0, 0, 0, 0, 0, 2, 15
+"/Users/spurge/Desktop/code/my-unsplash-client/src/components/NewPhotoModal/NewPhotoModal.tsx", "TypeScript React", 0, 0, 97, 0, 0, 0, 0, 0, 0, 6, 103
+"/Users/spurge/Desktop/code/my-unsplash-client/src/components/Overlay/Overlay.tsx", "TypeScript React", 0, 0, 51, 0, 0, 0, 0, 0, 0, 3, 54
+"/Users/spurge/Desktop/code/my-unsplash-client/src/constants/index.const.ts", "TypeScript", 0, 7, 0, 0, 0, 0, 0, 0, 1, 3, 11
+"/Users/spurge/Desktop/code/my-unsplash-client/src/data/add-photo.ts", "TypeScript", 0, 25, 0, 0, 0, 0, 0, 0, 0, 4, 29
+"/Users/spurge/Desktop/code/my-unsplash-client/src/data/delete-photo.ts", "TypeScript", 0, 16, 0, 0, 0, 0, 0, 0, 0, 2, 18
+"/Users/spurge/Desktop/code/my-unsplash-client/src/data/get-all-photos.ts", "TypeScript", 0, 19, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"/Users/spurge/Desktop/code/my-unsplash-client/src/favicon.svg", "XML", 15, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16
+"/Users/spurge/Desktop/code/my-unsplash-client/src/index.css", "CSS", 0, 0, 0, 43, 0, 0, 0, 0, 0, 1, 44
+"/Users/spurge/Desktop/code/my-unsplash-client/src/layout/Header/Header.tsx", "TypeScript React", 0, 0, 67, 0, 0, 0, 0, 0, 0, 10, 77
+"/Users/spurge/Desktop/code/my-unsplash-client/src/layout/MasonryContainer/MasonryContainer.module.css", "CSS", 0, 0, 0, 62, 0, 0, 0, 0, 2, 12, 76
+"/Users/spurge/Desktop/code/my-unsplash-client/src/layout/MasonryContainer/MasonryContainer.tsx", "TypeScript React", 0, 0, 101, 0, 0, 0, 0, 0, 0, 12, 113
+"/Users/spurge/Desktop/code/my-unsplash-client/src/logo.svg", "XML", 7, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8
+"/Users/spurge/Desktop/code/my-unsplash-client/src/main.tsx", "TypeScript React", 0, 0, 14, 0, 0, 0, 0, 0, 0, 2, 16
+"/Users/spurge/Desktop/code/my-unsplash-client/src/styles/theme.ts", "TypeScript", 0, 16, 0, 0, 0, 0, 0, 0, 0, 2, 18
+"/Users/spurge/Desktop/code/my-unsplash-client/src/types/index.ts", "TypeScript", 0, 17, 0, 0, 0, 0, 0, 0, 0, 4, 21
+"/Users/spurge/Desktop/code/my-unsplash-client/src/vite-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"/Users/spurge/Desktop/code/my-unsplash-client/tsconfig.json", "JSON", 0, 0, 0, 0, 20, 0, 0, 0, 0, 1, 21
+"/Users/spurge/Desktop/code/my-unsplash-client/vite.config.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 0, 1, 2, 8
+"Total", "-", 22, 105, 367, 105, 47, 13, 1, 101209, 24119, 22277, 148265
