@@ -1,8 +1,7 @@
 import {URL} from '../constants/index.const'
+import {StateSetterBool} from '../types'
 
-export const getAllPhotos = async (
-  fetchAgain: React.Dispatch<React.SetStateAction<boolean>>,
-) => {
+export const getAllPhotos = async (fetchAgain: StateSetterBool) => {
   try {
     const data = await (
       await fetch(URL, {

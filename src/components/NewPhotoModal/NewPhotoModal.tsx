@@ -11,6 +11,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  useToast,
 } from '@chakra-ui/react'
 import {addPhoto} from '../../data/add-photo'
 
@@ -28,6 +29,7 @@ export default function NewPhotoModal({
   const [label, setLabel] = React.useState('')
   const [url, setUrl] = React.useState('')
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const toast = useToast()
 
   const handleAddPhoto = async () => {
     const payload = {
@@ -35,12 +37,18 @@ export default function NewPhotoModal({
       url,
     }
     const data = await addPhoto(payload, setIsSubmitting)
-    console.log({data})
     if (data) {
       setLabel('')
       setUrl('')
       onClose()
       setShouldRefresh(true)
+      toast({
+        title: 'Photo Added',
+        description: 'Photo was successfully added.',
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      })
     }
   }
   return (

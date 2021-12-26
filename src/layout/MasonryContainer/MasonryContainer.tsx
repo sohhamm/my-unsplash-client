@@ -5,13 +5,18 @@ import {Box, Image, useToast} from '@chakra-ui/react'
 import {breakPointColsObj} from '../../constants/index.const'
 import Overlay from '../../components/Overlay/Overlay'
 import {getAllPhotos} from '../../data/get-all-photos'
-import {PhotoType} from '../../types'
+import {ClientType, PhotoType} from '../../types'
 import {deletePhoto} from '../../data/delete-photo'
 
-declare interface MasonryContainerProps {
+interface MasonryContainerProps {
   searchTxt: string
   shouldRefresh: boolean
   setShouldRefresh: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const client = async ({setItems, setShouldRefresh}: ClientType) => {
+  const items = await getAllPhotos(setShouldRefresh)
+  setItems(items)
 }
 
 export default function MasonryContainer({
@@ -25,12 +30,7 @@ export default function MasonryContainer({
   const toast = useToast()
 
   React.useEffect(() => {
-    const client = async () => {
-      const items = await getAllPhotos(setShouldRefresh)
-      setItems(items)
-    }
-
-    client()
+    client({setItems, setShouldRefresh})
   }, [shouldRefresh])
 
   const handleDeletePhoto = async (id: string) => {
@@ -59,6 +59,7 @@ export default function MasonryContainer({
   }
 
   if (!items) return <p>loading...</p>
+
   return (
     <Masonry
       breakpointCols={breakPointColsObj}

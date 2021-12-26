@@ -13,3 +13,8 @@ export interface OverlayProps {
 }
 
 export type StateSetterBool = React.Dispatch<React.SetStateAction<boolean>>
+
+export interface ClientType {
+  setItems: React.Dispatch<React.SetStateAction<PhotoType[] | null>>
+  setShouldRefresh: StateSetterBool
+}
