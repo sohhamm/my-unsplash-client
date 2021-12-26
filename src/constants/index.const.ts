@@ -5,6 +5,4 @@ export const breakPointColsObj = {
   500: 1,
 }
 
-// todo change it to prod url
-
-export const URL = `http://localhost:9000/api/photos`
+export const URL = `${import.meta.env.VITE_APP_URL}/api/photos`

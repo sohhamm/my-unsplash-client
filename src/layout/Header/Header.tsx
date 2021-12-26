@@ -32,8 +32,6 @@ export default function Header({
   const [isSmallWidth] = useMediaQuery('(max-width: 775px)')
   const [isMobile] = useMediaQuery('(max-width: 500px)')
 
-  console.log(isSmallWidth)
-
   return (
     <Flex
       p={['10px', '30px', '32px']}
@@ -61,6 +59,7 @@ export default function Header({
         ml={isSmallWidth ? 0 : 14}
         mb={isSmallWidth ? 4 : 0}
         mt={isSmallWidth ? 4 : 0}
+        position={isMobile ? 'sticky' : 'relative'}
       >
         <InputLeftElement>
           <Icon as={MdSearch} w={8} h={8} mt={2} color="#BDBDBD" />
@@ -73,11 +72,20 @@ export default function Header({
           onChange={e => setSearchTxt(e.target.value)}
           focusBorderColor="brand.400"
           size="lg"
+          position={isMobile ? 'sticky' : 'inherit'}
+          fontFamily={'Montserrat'}
         />
 
         {searchTxt.length && (
           <InputRightElement>
-            <MdClose onClick={() => setSearchTxt('')} />
+            <Icon
+              as={MdClose}
+              w={8}
+              h={8}
+              mt={2}
+              color="#BDBDBD"
+              onClick={() => setSearchTxt('')}
+            />
           </InputRightElement>
         )}
       </InputGroup>
