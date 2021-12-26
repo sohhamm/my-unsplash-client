@@ -59,8 +59,9 @@ export default function Header({
         bgColor={'#3DB46D'}
         color="white"
         onClick={() => onOpen()}
+        size="lg"
       >
-        Add Photos
+        Add a photo
       </Button>
 
       <React.Suspense fallback={'loading....'}>

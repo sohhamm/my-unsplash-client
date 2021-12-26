@@ -1,15 +1,20 @@
 import {Box, Text, Button} from '@chakra-ui/react'
+import {OverlayProps} from '../../types'
 
 export default function Overlay({
   currentActive,
   label,
   txt,
-}: {
-  currentActive: string | null
-  label: string
-  txt?: boolean
-}) {
+  handleDeletePhoto,
+  id,
+}: OverlayProps) {
   const shouldShow = currentActive === label ? '1' : '0'
+
+  const handleClick = () => {
+    if (handleDeletePhoto && id) {
+      handleDeletePhoto(id)
+    }
+  }
   return (
     <Box as="figcaption" w="100%" h="100%">
       {txt ? (
@@ -32,6 +37,7 @@ export default function Overlay({
           zIndex={1}
           left={220}
           opacity={shouldShow}
+          onClick={handleClick}
         >
           Delete
         </Button>
