@@ -9,6 +9,7 @@ import {
   useDisclosure,
   Icon,
   useMediaQuery,
+  Spinner,
 } from '@chakra-ui/react'
 import BrandLogo from '../../components/BrandLogo/BrandLogo'
 import {MdSearch, MdClose} from 'react-icons/md'
@@ -89,6 +90,7 @@ export default function Header({
           </InputRightElement>
         )}
       </InputGroup>
+
       {!isMobile && (
         <Button
           ml="auto"
@@ -101,7 +103,7 @@ export default function Header({
         </Button>
       )}
 
-      <React.Suspense fallback={'loading....'}>
+      <React.Suspense fallback={'loading.....'}>
         <NewPhotoModal
           isOpen={isOpen}
           onClose={onClose}

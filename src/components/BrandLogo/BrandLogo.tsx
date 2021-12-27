@@ -7,7 +7,7 @@ export default function BrandLogo() {
       <Icon as={MdCollections} boxSize={'50px'} mr={4} />
       <Box>
         <Text fontWeight={'bold'}>My Unsplash</Text>
-        <Text>devChallenges.io</Text>
+        <Text>devchallenges.io</Text>
       </Box>
     </Flex>
   )
